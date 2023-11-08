@@ -8,7 +8,6 @@ import requests
 from datetime import datetime
 from bson import ObjectId
 
-
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
@@ -47,7 +46,7 @@ def detail(keyword):
 
     if type(definitions[0]) is str:
         return render_template("error.html", keyword=keyword, suggestions=definitions )
-   
+
 
     status = request.args.get('status_give', 'new')
     return render_template("detail.html", word=keyword, definitions=definitions, status=status)
